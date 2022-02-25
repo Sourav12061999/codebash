@@ -16,9 +16,8 @@ const Home: NextPage = () => {
       <Navbar/>
       </nav>
       <main >
-        < ThreeD/>
       </main>
-
+       {/* <ThreeD/> */}
       <footer>
       </footer>
     </div>
