@@ -1,3 +1,11 @@
 body {
   background-color: black;
 }
+nav {
+  margin-bottom: 70px;
+}
+
+main {
+  width: 90%;
+  margin: auto;
+}

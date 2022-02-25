@@ -30,7 +30,7 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
   };
   return (
     <>
-    <AppBar color="inherit" sx={{background:"linear-gradient(#c21500,#ffc500)"}}>
+    <AppBar  sx={{background:"linear-gradient(#c21500,#ffc500)"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography

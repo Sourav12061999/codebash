@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-// import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Navbar from '../Components/Navbar/navbar'
 import ThreeD from '../Components/Canvas/threeD'
+import Cardcontainer from '../Page Components/Home/card-container'
 const Home: NextPage = () => {
   return (
     <div>
@@ -15,9 +15,9 @@ const Home: NextPage = () => {
       <nav>
       <Navbar/>
       </nav>
-      <main >
+      <main>
+      <Cardcontainer/>
       </main>
-       {/* <ThreeD/> */}
       <footer>
       </footer>
     </div>
