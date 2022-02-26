@@ -6,7 +6,7 @@ async function dbConnect() {
       return;
     }
     const MONGODB_URL:any=process.env.MONGODB_URL
-    let db=await mongoose.connect(MONGODB_URL);
+    await mongoose.connect(MONGODB_URL);
     connection=true;
     
 
