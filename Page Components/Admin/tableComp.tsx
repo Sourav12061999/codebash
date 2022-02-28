@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from '@mui/material'
+import { Box, Button } from '@mui/material'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Typography } from '@mui/material';
+import AddBlog from './addBlog';
 function TableComp() {
     function createData(
         name: string,
@@ -18,7 +19,6 @@ function TableComp() {
       ) {
         return { name, calories, fat, carbs, protein };
       }
-      
       const rows = [
         createData('Frozen Yougart', 159, 6.0, 24, 4.0),
         createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
@@ -50,13 +50,13 @@ function TableComp() {
               </TableCell>
               <TableCell align="right">{row.calories}</TableCell>
               <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
+              <TableCell align="right"><Button>update</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-
+    <AddBlog/>
     </Box>
   )
 }
