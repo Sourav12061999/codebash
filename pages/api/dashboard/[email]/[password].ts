@@ -13,12 +13,13 @@ export default async function handler(
              res.status(200).json({
                  isError:false,
                  msg:`Welcome back ${data.name}`,
-                 ...data
+                 data
              });
         }else{
         res.status(303).json({
             msg:"Admin not found",
             isError:true,
+            data
         });
       }
     } catch (error) {
