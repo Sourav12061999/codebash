@@ -9,8 +9,18 @@ export default async function handler(
     try {
         let {email,password}=req.query;
         let data= await admin.findOne({$and:[{email},{password}]}).lean().exec();
-        if(data) res.status(200).json(data);
-        else res.status(200).json("Admin not found");
+        if(data){
+             res.status(200).json({
+                 isError:false,
+                 msg:`Welcome back ${data.name}`,
+                 ...data
+             });
+        }else{
+        res.status(303).json({
+            msg:"Admin not found",
+            isError:true,
+        });
+      }
     } catch (error) {
         res.status(300).json("Not found");
     }

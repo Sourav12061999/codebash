@@ -1,22 +1,27 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useContext} from 'react'
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import { Button, Typography } from '@mui/material';
+import {AdminContext} from "../../Components/Context/context";
 const Login:React.FunctionComponent = ()=> {
     const [email, setEmail] = useState<string | null>("");
     const [password, setPassword] = useState<string | null>("");
-    
+    const adminContext = useContext(AdminContext);
+    const admin=adminContext?.admin;
+    const setAdmin=adminContext?.setAdmin;
     const adminLogin:Function=(email:string,password:string)=>{
        fetch(`/api/dashboard/${email}/${password}`)
        .then(res => res.json())
        .then(data =>{
-        console.log(data);
-        
+         if(data.isError){
+          console.log(data);
+         }else{
+          setAdmin? setAdmin(data):null;
+         }
        })
        .catch(error =>{
            console.error(error);
-           
        })
     }
   return (
