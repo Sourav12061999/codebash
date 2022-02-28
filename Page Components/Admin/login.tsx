@@ -22,7 +22,10 @@ interface adminData{
   isError:boolean,
   msg:string,
 }
-const Login:React.FunctionComponent = ()=> {
+interface Props{
+  setAdmin:Function | undefined
+}
+const Login = (props:Props)=> {
     const [email, setEmail] = useState<string | null>("");
     const [password, setPassword] = useState<string | null>("");
     const [adminLoged, setAdminLoged] = useState<adminLogged>({
@@ -31,8 +34,7 @@ const Login:React.FunctionComponent = ()=> {
       showSnack:false
     });
     const adminContext = useContext(AdminContext);
-    const admin=adminContext?.admin;
-    const setAdmin=adminContext?.setAdmin;
+    const setAdmin=props.setAdmin;
     const adminLogin:Function=(email:string,password:string)=>{
        fetch(`/api/dashboard/${email}/${password}`)
        .then(res => res.json())
