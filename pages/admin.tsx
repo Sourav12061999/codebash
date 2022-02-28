@@ -2,7 +2,7 @@ import React,{useContext} from 'react'
 import type { NextPage } from 'next'
 import Login from '../Page Components/Admin/login'
 import {AdminContext} from "../Components/Context/context";
-import TableComp from '../Page Components/Admin/tableComp';
+import AdminView from '../Page Components/Admin/adminView';
 const  Admin:NextPage=() => {
   const adminContext = useContext(AdminContext);
     const admin=adminContext?.admin;
@@ -10,7 +10,7 @@ const  Admin:NextPage=() => {
   return (
     <div>
        {
-         admin?<TableComp/>:<Login setAdmin={setAdmin}/>
+         admin?<AdminView/>:<Login setAdmin={setAdmin}/>
        }
     </div>
   )
