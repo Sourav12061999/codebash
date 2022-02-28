@@ -2,9 +2,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import dbConnect from "../../Utils/dbConnect";
 import blog from "../../Schemas/blog.schema";
-type Data = {
-  name: string
-}
 dbConnect();
 export default function handler(
   req: NextApiRequest,
