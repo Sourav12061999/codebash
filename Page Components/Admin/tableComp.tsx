@@ -9,7 +9,14 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Typography } from '@mui/material';
 import AddBlog from './addBlog';
+import { TiFilter } from "react-icons/ti";
+import { IconButton } from '@mui/material';
+import StatusFilter from './statusFilter';
 function TableComp() {
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
     function createData(
         name: string,
         calories: number,
@@ -33,9 +40,19 @@ function TableComp() {
         <TableHead sx={{fontWeight:700}}>
           <TableRow>
             <TableCell><Typography variant='h5'>Heading</Typography></TableCell>
-            <TableCell align="right"><Typography variant='h5'>Status</Typography></TableCell>
-            <TableCell align="right"><Typography variant='h5'>Views</Typography></TableCell>
-            <TableCell align="right"><Typography variant='h5'>Update</Typography></TableCell>
+            <TableCell>
+              <Typography variant='h5'>
+                Status
+                <IconButton onClick={(event)=>{
+                  handleClick(event);
+                }}>
+                <TiFilter/>
+              </IconButton>
+              <StatusFilter anchorEl={anchorEl} setAnchorEl={setAnchorEl}/>
+              </Typography>
+              </TableCell>
+            <TableCell ><Typography variant='h5'>Views</Typography></TableCell>
+            <TableCell><Typography variant='h5'>Update</Typography></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -48,9 +65,9 @@ function TableComp() {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right"><Button>update</Button></TableCell>
+              <TableCell >{row.calories}</TableCell>
+              <TableCell >{row.fat}</TableCell>
+              <TableCell ><Button>update</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>
