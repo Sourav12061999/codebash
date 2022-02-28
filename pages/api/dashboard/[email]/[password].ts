@@ -8,7 +8,7 @@ export default async function handler(
 ) {
     try {
         let {email,password}=req.query;
-        let data= await admin.find({$and:[{email},{password}]}).populate("blogs").lean().exec();
+        let data= await admin.findOne({$and:[{email},{password}]}).populate("blogs").lean().exec();
         if(data) res.status(200).json(data);
         else res.status(200).json("Admin not found");
     } catch (error) {
