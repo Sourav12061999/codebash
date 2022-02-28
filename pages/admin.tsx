@@ -8,11 +8,11 @@ const  Admin:NextPage=() => {
     const admin=adminContext?.admin;
     const setAdmin=adminContext?.setAdmin;
   return (
-    <div>
+    <main>
        {
          admin?<AdminView/>:<Login setAdmin={setAdmin}/>
        }
-    </div>
+    </main>
   )
 }
 
