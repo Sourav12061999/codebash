@@ -73,7 +73,6 @@ function TableComp() {
         </TableBody>
       </Table>
     </TableContainer>
-    <AddBlog/>
     </Box>
   )
 }
