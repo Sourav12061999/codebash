@@ -17,8 +17,6 @@ function Dlalogbox(props: SimpleDialogProps) {
     onClose();
   };
   const createBlog = (blogDetails: string) => {
-    console.log(blogDetails);
-
     fetch("http://localhost:3000/api/create-new-blog", {
       method: "POST",
       body: JSON.stringify({

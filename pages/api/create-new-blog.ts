@@ -9,17 +9,18 @@ export default async function handler(
   ) {
    try {
        if(req.method==="POST"){
+        let body=JSON.parse(req.body);
         let data=await blog.create({
-            title:req.body.title,
-            body:"",
-            image:"",
+            title:body.title,
+            body:"all ok",
+            image:"all ok",
             SEO:[],
         })
         let data2=await blogCard.create({
             blog_id:data._id,
             title:data.title,
-            body:"",
-            image:"",
+            body:"all ok",
+            image:"all ok",
             searchTitle:data.title.toLowerCase(),
         })
         res.status(200).json(data2);
