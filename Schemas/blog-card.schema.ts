@@ -7,7 +7,8 @@ const blogcardSchema=new mongoose.Schema({
     blog_id:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"blogs",
-    }
+    },
+    published:Boolean
 })
 let blogCard = mongoose.models.blogSchema || mongoose.model("blogCards",blogcardSchema);
 
