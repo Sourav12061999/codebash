@@ -8,7 +8,6 @@ export interface SimpleDialogProps {
   open: boolean;
   onClose: () => void;
 }
-
 function Dlalogbox(props: SimpleDialogProps) {
   const { onClose, open } = props;
 

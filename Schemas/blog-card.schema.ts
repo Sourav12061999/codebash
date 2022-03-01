@@ -4,7 +4,10 @@ const blogcardSchema=new mongoose.Schema({
     body:{type:String,required:true},
     image:{type:String,required:true},
     searchTitle:String,
-
+    blog_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"blogs",
+    }
 })
 let blogCard = mongoose.models.blogSchema || mongoose.model("blogCards",blogcardSchema);
 
