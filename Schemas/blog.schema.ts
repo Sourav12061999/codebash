@@ -6,6 +6,6 @@ const blogSchema=new mongoose.Schema({
     image:{type:String,required:true},
     SEO:[String],
 })
-let blog = mongoose.models.blogSchema || mongoose.model("blogs",blogSchema);
+let blog = mongoose.models.blogs || mongoose.model("blogs",blogSchema);
 
 export default blog;

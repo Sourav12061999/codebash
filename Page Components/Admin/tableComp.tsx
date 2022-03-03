@@ -48,6 +48,8 @@ function TableComp() {
     fetch("/api/getallblogCard")
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
+
         setIsLoading(false);
         setBlogData(data);
       })

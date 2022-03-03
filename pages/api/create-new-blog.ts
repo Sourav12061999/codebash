@@ -15,6 +15,7 @@ export default async function handler(
             body:"all ok",
             image:"all ok",
             SEO:[],
+            published:false,
         })
         let data2=await blogCard.create({
             blog_id:data._id,
@@ -22,6 +23,7 @@ export default async function handler(
             body:"all ok",
             image:"all ok",
             searchTitle:data.title.toLowerCase(),
+            published:false,
         })
         res.status(200).json(data2);
        }else{

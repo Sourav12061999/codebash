@@ -10,6 +10,6 @@ const blogcardSchema=new mongoose.Schema({
     },
     published:Boolean
 })
-let blogCard = mongoose.models.blogSchema || mongoose.model("blogCards",blogcardSchema);
+let blogCard = mongoose.models.blogCards || mongoose.model("blogCards",blogcardSchema);
 
 export default blogCard;
