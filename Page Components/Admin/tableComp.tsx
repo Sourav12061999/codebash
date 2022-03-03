@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Box, Button } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -8,22 +8,17 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Typography } from "@mui/material";
-import AddBlog from "./addBlog";
 import { TiFilter } from "react-icons/ti";
 import { IconButton } from "@mui/material";
 import StatusFilter from "./statusFilter";
-interface blogDataInterface {
-  title: string;
-  body: string;
-  image: string;
-  searchTitle: string;
-  blog_id: string;
-  published: boolean;
-}
+import { BlogDataContext } from "../../Components/Context/context";
 function TableComp() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [blogData, setBlogData] = useState<Array<blogDataInterface>>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const Blogdata = useContext(BlogDataContext);
+  const blogData = Blogdata.blogData;
+  const setBlogData = Blogdata.setblogData;
+  const isLoading = Blogdata.isLoading;
+  const setIsLoading = Blogdata.setIsLoading;
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -49,7 +44,6 @@ function TableComp() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-
         setIsLoading(false);
         setBlogData(data);
       })
@@ -107,7 +101,9 @@ function TableComp() {
                 <TableCell component="th" scope="row">
                   {row.title}
                 </TableCell>
-                <TableCell>{row.published}</TableCell>
+                <TableCell>
+                  {row.published ? "Published" : "Unpublished"}
+                </TableCell>
                 <TableCell>{10}</TableCell>
                 <TableCell>
                   <Button>update</Button>

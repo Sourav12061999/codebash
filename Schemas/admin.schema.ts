@@ -5,5 +5,5 @@ const adminSchema=new mongoose.Schema({
     email:String,
     password:String,
 })
-let admin = mongoose.models.adminSchema || mongoose.model("admins",adminSchema);
+let admin = mongoose.models.admins || mongoose.model("admins",adminSchema);
 export default admin;
