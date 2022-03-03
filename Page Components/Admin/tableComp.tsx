@@ -12,6 +12,7 @@ import { TiFilter } from "react-icons/ti";
 import { IconButton } from "@mui/material";
 import StatusFilter from "./statusFilter";
 import { BlogDataContext } from "../../Components/Context/context";
+import { useRouter } from "next/router";
 function TableComp() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const Blogdata = useContext(BlogDataContext);
@@ -19,6 +20,7 @@ function TableComp() {
   const setBlogData = Blogdata.setblogData;
   const isLoading = Blogdata.isLoading;
   const setIsLoading = Blogdata.setIsLoading;
+  const router = useRouter();
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -91,7 +93,7 @@ function TableComp() {
           <TableBody>
             {blogData.map((row) => (
               <TableRow
-                key={row.blog_id}
+                key={row._id}
                 sx={{
                   "&:last-child td, &:last-child th": { border: 0 },
                   cursor: "pointer",
@@ -106,7 +108,13 @@ function TableComp() {
                 </TableCell>
                 <TableCell>{10}</TableCell>
                 <TableCell>
-                  <Button>update</Button>
+                  <Button
+                    onClick={() => {
+                      router.push(`/admin/${row.blog_id}`);
+                    }}
+                  >
+                    update
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}

@@ -11,6 +11,7 @@ interface adminContextInterface {
   setAdmin: Function;
 }
 interface blogDataInterface {
+  _id: string;
   title: string;
   body: string;
   image: string;
