@@ -26,6 +26,7 @@ function Dlalogbox(props: SimpleDialogProps) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        handleClose();
       })
       .catch((error) => {
         console.error(error);
