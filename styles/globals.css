@@ -14,4 +14,5 @@ main {
   padding: 2%;
   border: 1px solid rgb(231, 231, 231);
   box-shadow: 2px 2px 4px 4px rgb(235, 235, 235);
+  min-height: 60vh;
 }
